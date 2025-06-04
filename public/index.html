@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallero - Folder Viewer</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Gallero</h1>
+      <div class="controls">
+        <button id="open-folder-btn">Open Folders</button>
+      </div>
+    </header>
+    
+    <div class="toolbar">
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search files or tags...">
+        <button id="search-btn">Search</button>
+      </div>
+      <div class="view-options">
+        <button id="folder-view-btn" class="view-btn active">Folder View</button>
+        <button id="combined-view-btn" class="view-btn">Combined View</button>
+      </div>
+    </div>
+    
+    <main>
+      <div id="folders-container"></div>
+      <div id="combined-container" style="display: none;">
+        <div class="combined-header">
+          <h3>Image Grid</h3>
+          <div class="filter-options">
+            <label>
+              <input type="checkbox" id="show-images-only" value="images" checked>
+              Images Only
+            </label>
+          </div>
+        </div>
+        <div class="combined-content"></div>
+      </div>
+      <div id="details-panel">
+        <div class="details-header">
+          <h2>Details</h2>
+          <button id="close-details-btn">×</button>
+        </div>
+        <div id="details-content">
+          <p class="no-selection">Select a file to view details</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Image Modal Viewer -->
+  <div id="image-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modal-image-name">Image Name</h3>
+        <button id="close-modal-btn">×</button>
+      </div>
+      <div class="modal-body">
+        <button id="prev-image-btn" class="nav-btn">❮</button>
+        <div class="modal-image-container">
+          <img id="modal-image" src="" alt="Image Preview">
+        </div>
+        <button id="next-image-btn" class="nav-btn">❯</button>
+      </div>
+      <div class="modal-footer">
+        <div id="image-counter">1 of 10</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html> 
